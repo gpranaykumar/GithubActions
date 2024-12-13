@@ -41,7 +41,7 @@ jobs:
           pranay
           "@
           echo $multiLineMarkdown | Out-File -FilePath "${{github.workspace}}\res1.md"
-          res2 = @"
+          $res2 = @"
           #Pester Code Coverage Result
           | Result        | Passed      | 
           | TotalCount    | 50   |
