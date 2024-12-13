@@ -14,6 +14,7 @@ jobs:
         uses: actions/checkout@v3
         
       - name: Set Multi-Line Value in PowerShell Variable
+        id: step1
         shell: pwsh
         run: |
           $multiLineMarkdown = @"
@@ -35,7 +36,13 @@ jobs:
           | -----| -----|
           | 1    |  Hello |
           "@
-          
+          "res=$multiLineMarkdown" >> $Env:GITHUB_OUTPUT
           Write-Host "The markdown content is:"
           Write-Host $multiLineMarkdown
-          echo $multiLineMarkdown >> $env:GITHUB_STEP_SUMMARY
+         
+      
+      - name: Set Multi-Line Value in PowerShell Variable
+        id: step2
+        shell: pwsh
+        run: |
+           echo ${{steps.step1.outputs.res}} >> $env:GITHUB_STEP_SUMMARY
