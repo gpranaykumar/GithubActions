@@ -19,6 +19,8 @@ jobs:
           $multiLineMarkdown = @"
           # Header 1
           This is a paragraph with **bold** text and *italic* text.
+
+          **Bold**
           
           - Item 1
           - Item 2
