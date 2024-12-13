@@ -29,6 +29,11 @@ jobs:
           > This is a blockquote.
                     
           For more information, visit [GitHub](https://github.com).
+
+          **Table**
+          |  SNo | Task |
+          | -----| -----|
+          | 1    |  Hello |
           "@
           
           Write-Host "The markdown content is:"
