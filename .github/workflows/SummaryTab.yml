@@ -36,7 +36,11 @@ jobs:
           | -----| -----|
           | 1    |  Hello |
           "@
-          "res=$multiLineMarkdown" >> $Env:GITHUB_OUTPUT
+          $multiLine = @"
+          Hello
+          pranay
+          "@
+          "res=$multiLine" >> $Env:GITHUB_OUTPUT
           Write-Host "The markdown content is:"
           Write-Host $multiLineMarkdown
          
