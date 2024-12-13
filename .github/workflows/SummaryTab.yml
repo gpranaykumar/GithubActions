@@ -40,13 +40,26 @@ jobs:
           Hello
           pranay
           "@
-          "res=$multiLine" >> $Env:GITHUB_OUTPUT
+          echo $multiLineMarkdown | Out-File -FilePath "${{github.workspace}}\Artifacts\res1.md"
+          res2 = @"
+          #Pester Code Coverage Result
+          | Result        | Passed      | 
+          | TotalCount    | 50   |
+          | PassedCount   | 50  |
+          | FailedCount   | 0  |
+          | SkippedCount  | 0 |
+          | CodeCoverage  | 85% |
+          "@
+          echo $res2 | Out-File -FilePath "${{github.workspace}}\Artifacts\res2.md"
           Write-Host "The markdown content is:"
           Write-Host $multiLineMarkdown
+
+          echo $res2
          
       
       - name: Set Multi-Line Value in PowerShell Variable
         id: step2
         shell: pwsh
         run: |
-           echo ${{steps.step1.outputs.res}} >> $env:GITHUB_STEP_SUMMARY
+            Get-Content "${{github.workspace}}\Artifacts\res1.md" >> $env:GITHUB_STEP_SUMMARY
+            Get-Content "${{github.workspace}}\Artifacts\res2.md" >> $env:GITHUB_STEP_SUMMARY
