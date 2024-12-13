@@ -61,5 +61,5 @@ jobs:
         id: step2
         shell: pwsh
         run: |
-            Get-Content "${{github.workspace}}\Artifacts\res1.md" >> $env:GITHUB_STEP_SUMMARY
-            Get-Content "${{github.workspace}}\Artifacts\res2.md" >> $env:GITHUB_STEP_SUMMARY
+            Get-Content "${{github.workspace}}\res1.md" >> $env:GITHUB_STEP_SUMMARY
+            Get-Content "${{github.workspace}}\res2.md" >> $env:GITHUB_STEP_SUMMARY
