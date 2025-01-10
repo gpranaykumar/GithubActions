@@ -1,0 +1,19 @@
+name: Custom Action Fetch Repo Name
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        
+      - name: Upgrade Hopper with hotfix or patch
+        uses: gpranaykumar/GithubCustomActions/FetchRepoName@main
+        with:
+          TestInp: "Hello World" 
