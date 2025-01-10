@@ -13,7 +13,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
         
-      - name: Upgrade Hopper with hotfix or patch
+      - name: Call Custom Action
         uses: gpranaykumar/GithubCustomActions/FetchRepoName@main
         with:
           TestInp: "Hello World" 
