@@ -1,0 +1,25 @@
+name: Action to Upload Artifacts
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        
+      - name: Custom Action to create txt files
+        uses: gpranaykumar/GithubCustomActions/CreateTxtFiles@main
+        
+      - name: Upload generated files as artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: generated-files
+          path: |
+            ./Artifacts/file1.txt
+            ./Artifacts/file2.txt
